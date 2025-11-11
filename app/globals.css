@@ -1,0 +1,346 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #0f172a;
+  color: #020617;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0f172a 0%, #020617 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px 96px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-container {
+  width: min(1200px, 100%);
+  background-color: #f8fafc;
+  border-radius: 24px;
+  box-shadow: 0 40px 120px rgba(15, 23, 42, 0.45);
+  overflow: hidden;
+  position: relative;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1d4ed8, #9333ea);
+  color: white;
+  padding: 48px clamp(24px, 6vw, 64px);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 700;
+}
+
+.app-header p {
+  margin: 16px 0 0;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  max-width: 640px;
+  line-height: 1.6;
+  color: rgba(248, 250, 252, 0.9);
+}
+
+.content {
+  padding: clamp(24px, 6vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.input-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .input-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.panel {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  background-color: white;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+  color: #0f172a;
+}
+
+.panel p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  background-color: #f8fafc;
+  font-size: 0.95rem;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.actions button {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.actions button.primary {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: white;
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.3);
+}
+
+.actions button.ghost {
+  background: rgba(148, 163, 184, 0.12);
+  color: #475569;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actions button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 42px rgba(37, 99, 235, 0.35);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  border-radius: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(147, 51, 234, 0.08));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.metric-card h3 {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: #1e293b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metric-card strong {
+  font-size: 1.75rem;
+  color: #0f172a;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activity-table thead {
+  background-color: rgba(59, 130, 246, 0.08);
+}
+
+.activity-table th {
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #475569;
+  padding: 12px 16px;
+}
+
+.activity-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  vertical-align: middle;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.member-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.member-cell img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(59, 130, 246, 0.4);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.status-low {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.status-balanced {
+  background: rgba(34, 197, 94, 0.12);
+  color: #0f9d58;
+}
+
+.status-high {
+  background: rgba(249, 115, 22, 0.12);
+  color: #c2410c;
+}
+
+.score-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background-color: rgba(15, 23, 42, 0.08);
+}
+
+.score-bar span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #9333ea, #3b82f6);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 16px;
+  color: #475569;
+}
+
+.empty-state strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.error-box {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #b91c1c;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge.trend-up {
+  background: rgba(34, 197, 94, 0.12);
+  color: #166534;
+}
+
+.badge.trend-down {
+  background: rgba(239, 68, 68, 0.12);
+  color: #7f1d1d;
+}
+
+.badge.trend-steady {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
